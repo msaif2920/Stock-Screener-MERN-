@@ -24,7 +24,7 @@ function ReturnedCompanies() {
   const postUrl = "https://stockmarketbackend.uc.r.appspot.com/companies";
 
   useEffect(() => {
-    axios.post("http://localhost:8080/companies", value).then(async (resp) => {
+    axios.post(postUrl, value).then(async (resp) => {
       setStockVal({ values: await resp.data });
       setActiveVal({ values: await resp.data.slice(0, 24) });
       setTotalCount(resp.data.length);

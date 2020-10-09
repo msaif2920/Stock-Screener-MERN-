@@ -1,5 +1,22 @@
+html {
+  font-family: "Teko", sans-serif;
+}
+
 .element {
   float: right;
+}
+
+.Border {
+  border-style: solid;
+  border-width: 2px;
+  width: 25rem;
+}
+
+.Dashboard-Stock {
+  color: #eeecda;
+  background-color: #0f3057;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .tables {

@@ -14,7 +14,7 @@ function DetailedComponent() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8080/companyDetails", value)
+      .post("https://stockmarketbackend.uc.r.appspot.com/companyDetails", value)
       .then(async (resp) => {
         try {
           console.log(resp.data.Name);
@@ -32,30 +32,30 @@ function DetailedComponent() {
 
   return (
     <div>
-      <h1>Dashboard Stock</h1>
+      <h1 class="Dashboard-Stock">Dashboard Stock</h1>
 
-      <div>
-        <h5>CORPORATE INFO</h5>
+      <div class="Border">
+        <h5 class="Border text-center">CORPORATE INFO</h5>
         <div>
-          <p>CompanyName: {detailsCompany.name}</p>
+          <p class="pl-1">CompanyName: {detailsCompany.name}</p>
         </div>
       </div>
-      <div>
-        <h5>MARKET VALUE</h5>
+      <div class="Border">
+        <h5 class="Border text-center">MARKET VALUE</h5>
         <div>
-          <p>Price: {detailsCompany.price}</p>
+          <p class="pl-1">Price: {detailsCompany.price}</p>
         </div>
       </div>
-      <div>
-        <h5>VALUATION</h5>
+      <div class="Border">
+        <h5 class="Border text-center">VALUATION</h5>
         <div>
-          <p>P/E: {detailsCompany.PE}</p>
+          <p class="pl-1">P/E: {detailsCompany.PE}</p>
         </div>
       </div>
-      <div>
-        <h5>Growth</h5>
+      <div class="Border">
+        <h5 class="Border text-center">Growth</h5>
         <div>
-          <p>EPS: {detailsCompany.EPS} </p>
+          <p class="pl-1">EPS: {detailsCompany.EPS} </p>
         </div>
       </div>
       <div className="element">
