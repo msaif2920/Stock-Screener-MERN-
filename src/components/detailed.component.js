@@ -12,6 +12,10 @@ function DetailedComponent() {
     EPS: null,
   });
 
+  const [candleValue, setCandleValue] = useState({
+    values: [],
+  });
+
   useEffect(() => {
     axios
       .post("https://stockmarketbackend.uc.r.appspot.com/companyDetails", value)
@@ -28,6 +32,16 @@ function DetailedComponent() {
           });
         } catch {}
       });
+
+    const getData = async () => {
+      const response = await fetch(
+        "https://cors-anywhere.herokuapp.com/https://eodhistoricaldata.com/api/intraday/MCD.US?api_token=5f05dbbf1f59a5.46485507&interval=5m&fmt=json&from=1564752900"
+      );
+      const data = await response.json();
+      setCandleValue({ values: data });
+      console.log(data);
+    };
+    getData();
   }, []);
 
   return (
