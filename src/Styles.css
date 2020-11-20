@@ -1,3 +1,7 @@
+* {
+  margin: 0px;
+}
+
 html {
   font-family: "Teko", sans-serif;
 }
@@ -82,6 +86,9 @@ input {
   border: 3px solid lightgray;
   border-top-color: coral;
   animation: spinner 0.7s linear infinite;
+}
+
+.dashBoard {
 }
 
 @keyframes spinner {
