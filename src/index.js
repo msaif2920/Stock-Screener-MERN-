@@ -1,19 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {createStore} from "redux";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./reducers/implementAdd"
-import "./Styles.css"
+import filterAddReducer from "./reducers/implementAdd";
+import clickedAddReducer from "./reducers/clickedCompany";
+import { combineReducers } from "redux";
 
+import "./Styles.css";
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); 
+const allReducers = combineReducers({
+  filter: filterAddReducer,
+  link: clickedAddReducer,
+});
+
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    </Provider>
-  ,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
-

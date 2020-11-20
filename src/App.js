@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Styles.css";
 
 import Navbar from "./components/navbar.component";
 import Filter from "./components/filter.component";
@@ -11,7 +12,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <div className="container">
+        <div>
           <Navbar />
           <Route path="/" exact component={Filter} />
           <Route path="/returnedCompanies" component={ReturnedComapnies} />

@@ -8,10 +8,10 @@ const implementAddAction = (state = {}, action) => {
     default:
       return state;
 
-    case "Company":
-      return {
-        CompanyName: action.payload,
-      };
+    // case "Company":
+    //   return {
+    //     CompanyName: action.payload,
+    //   };
   }
 };
 
