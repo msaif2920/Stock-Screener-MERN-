@@ -1,0 +1,39 @@
+/* .dashBoard {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dashboard_right {
+  flex: 0.9;
+  flex-grow: 1;
+  width: 100%;
+}
+
+@media (max-width: 990px) {
+  .dashBoard {
+    flex-direction: column;
+  }
+} */
+
+.app_stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashBoard {
+  margin: 1rem;
+}
+
+.dashboard_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard_bottom_right {
+  flex: 0.8;
+}
+
+.dashboard_bottom_left {
+  flex: 0.2;
+  padding: 10px;
+}

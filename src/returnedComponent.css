@@ -1,0 +1,22 @@
+.full-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.flexBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination {
+  float: right;
+}
+
+.table {
+  background-color: white;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
