@@ -34,11 +34,18 @@ function DetailedComponent() {
     fourthInfo: "",
   });
 
-  console.log(clickedState);
-
   const [fullData, setAllData] = useState({
     values: [{ Name: "Ticker" }],
   });
+
+  const fetchCompanyDetails = async () => {
+    const response = await axios.post(
+      "https://stockmarketbackend.uc.r.appspot.com/companyDetails",
+      value
+    );
+
+    return response;
+  };
 
   function Corporate() {
     return (
@@ -76,7 +83,6 @@ function DetailedComponent() {
     return (
       <div>
         <h6>EPS Growth: {clickedState.firstInfo}</h6>
-
         <h6>Revenue Growth: {clickedState.secondInfo}</h6>
         <h6>Div Yield Growth: {clickedState.thirdInfo}</h6>
       </div>
@@ -84,39 +90,25 @@ function DetailedComponent() {
   }
 
   useEffect(() => {
-    axios
-      .post("https://stockmarketbackend.uc.r.appspot.com/companyDetails", value)
+    fetchCompanyDetails()
       .then(async (resp) => {
-        try {
-          console.log(resp.data.Name);
-          setDetails((prevValue) => {
-            return {
-              name: resp.data.CompanyName,
-              price: resp.data.close,
-              EBITDA: resp.data.EBITDA,
-              EPS: resp.data.EPSEstimateCurrentYear,
-            };
-          });
-          setClickedState((prevValue) => {
-            return {
-              firstInfo: resp.data.Description,
+        setDetails({
+          name: await resp.data.CompanyName,
+          price: await resp.data.close,
+          EBITDA: await resp.data.EBITDA,
+          EPS: await resp.data.EPSEstimateCurrentYear,
+        });
+        setClickedState({
+          firstInfo: resp.data.Description,
+          secondInfo: resp.data.CorporateExecutive,
+          thirdInfo: resp.data.MarketCapitalizationMln,
+        });
 
-              secondInfo: resp.data.CorporateExecutive,
-              thirdInfo: resp.data.MarketCapitalizationMln,
-            };
-          });
-
-          setAllData({ values: await resp.data });
-        } catch {}
+        setAllData({ values: await resp.data });
+      })
+      .catch((err) => {
+        //console.log("Something went Wrong");
       });
-
-    const getData = async () => {
-      const response = await fetch(
-        "https://cors-anywhere.herokuapp.com/https://eodhistoricaldata.com/api/intraday/MCD.US?api_token=5f05dbbf1f59a5.46485507&interval=5m&fmt=json&from=1564752900"
-      );
-      const data = await response.json();
-    };
-    getData();
   }, []);
 
   useEffect(() => {

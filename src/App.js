@@ -12,12 +12,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <div>
+        <>
           <Navbar />
           <Route path="/" exact component={Filter} />
           <Route path="/returnedCompanies" component={ReturnedComapnies} />
           <Route path="/companyDetails" component={detailedComponent} />
-        </div>
+        </>
       </Switch>
     </Router>
   );

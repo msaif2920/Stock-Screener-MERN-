@@ -75,13 +75,12 @@ class CandleStick extends React.Component {
           monochrome: {
             enabled: false,
             color: "#255aee",
-
             shadeIntensity: 0.65,
           },
         },
 
         title: {
-          text: "CandleStick Chart - Category X-axis",
+          text: this.props.ticker.companyName,
           align: "left",
         },
 

@@ -22,7 +22,6 @@ function ReturnedCompanies() {
   });
 
   const value = useSelector((state) => state.filter.values);
-  console.log(value);
   const postUrl = "https://stockmarketbackend.uc.r.appspot.com/companies";
 
   useEffect(() => {
@@ -30,7 +29,6 @@ function ReturnedCompanies() {
       setStockVal({ values: await resp.data });
       setActiveVal({ values: await resp.data.slice(0, 24) });
       setTotalCount(resp.data.length);
-      console.log(resp.data.length);
 
       try {
         document.querySelector(".main").classList.remove("spinner-1");
